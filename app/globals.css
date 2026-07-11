@@ -1,26 +1,146 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface: #16171d;
+  --shadow-dark: #0a0b0f;
+  --shadow-light: #23252f;
+  --ink: #e8e9ee;
+  --muted: #9a9eaf;
+  --accent: #a78bfa;
+  --accent-deep: #8b5cf6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent-deep);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--shadow-light);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3040;
+}
+
+/* ---- neumorphic surfaces ---- */
+
+.neu {
+  background: var(--surface);
+  box-shadow:
+    9px 9px 22px var(--shadow-dark),
+    -9px -9px 22px var(--shadow-light);
+}
+
+.neu-sm {
+  background: var(--surface);
+  box-shadow:
+    5px 5px 12px var(--shadow-dark),
+    -5px -5px 12px var(--shadow-light);
+}
+
+.neu-inset {
+  background: var(--surface);
+  box-shadow:
+    inset 5px 5px 10px var(--shadow-dark),
+    inset -5px -5px 10px var(--shadow-light);
+}
+
+.neu-inset-sm {
+  background: var(--surface);
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+/* interactive: raised at rest, flattens on hover, presses in on click */
+.neu-btn {
+  background: var(--surface);
+  box-shadow:
+    6px 6px 14px var(--shadow-dark),
+    -6px -6px 14px var(--shadow-light);
+  transition:
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+.neu-btn:hover {
+  color: var(--accent);
+  box-shadow:
+    3px 3px 8px var(--shadow-dark),
+    -3px -3px 8px var(--shadow-light);
+}
+.neu-btn:active {
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+  transform: scale(0.98);
+}
+
+.neu-card {
+  background: var(--surface);
+  box-shadow:
+    9px 9px 22px var(--shadow-dark),
+    -9px -9px 22px var(--shadow-light);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.neu-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    12px 12px 28px var(--shadow-dark),
+    -12px -12px 28px var(--shadow-light);
+}
+
+/* ---- scroll reveal ---- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .neu-card:hover {
+    transform: none;
+  }
 }

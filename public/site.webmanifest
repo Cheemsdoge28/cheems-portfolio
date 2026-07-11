@@ -1,0 +1,23 @@
+{
+  "name": "Ishan Bhat — Full-Stack Developer",
+  "short_name": "Ishan Bhat",
+  "description": "Portfolio of Ishan Bhat, full-stack developer and embedded Linux engineer.",
+  "icons": [
+    {
+      "src": "/images/icons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icons/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#16171d",
+  "background_color": "#16171d",
+  "display": "standalone",
+  "start_url": "/"
+}
