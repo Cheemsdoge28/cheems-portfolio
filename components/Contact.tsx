@@ -1,5 +1,5 @@
 import { profile } from "@/lib/data";
-import { GitHubIcon, MailIcon, PhoneIcon } from "./icons";
+import { DownloadIcon, GitHubIcon, MailIcon, PhoneIcon } from "./icons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -67,6 +67,17 @@ export default function Contact() {
                   </a>
                 );
               })}
+            </div>
+
+            <div className="mt-8">
+              <a
+                href="/Ishan-Bhat-CV.pdf"
+                download
+                className="neu-btn inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-accent"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                Download CV (PDF)
+              </a>
             </div>
           </div>
         </Reveal>

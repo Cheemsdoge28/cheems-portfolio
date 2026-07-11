@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { profile } from "@/lib/data";
-import { GitHubIcon, MailIcon, PinIcon } from "./icons";
+import { DownloadIcon, GitHubIcon, MailIcon, PinIcon } from "./icons";
 
 export default function Hero() {
   return (
@@ -37,6 +37,14 @@ export default function Hero() {
               className="neu-btn rounded-full px-7 py-3 text-sm font-semibold"
             >
               View projects
+            </a>
+            <a
+              href="/Ishan-Bhat-CV.pdf"
+              download
+              className="neu-btn flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-accent"
+            >
+              <DownloadIcon className="h-4 w-4" />
+              Download CV
             </a>
             <a
               href={profile.github}
