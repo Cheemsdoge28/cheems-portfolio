@@ -35,11 +35,11 @@ const channels = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="container-x scroll-mt-28 py-20">
+    <section id="contact" className="container-x scroll-mt-28 py-14 sm:py-20">
       <SectionHeading index="04" label="Contact" title="Let's work together" />
 
       <Reveal>
-        <div className="pop relative overflow-hidden rounded-3xl bg-teal p-8 text-cream sm:p-12">
+        <div className="pop relative overflow-hidden rounded-3xl bg-teal p-6 text-cream sm:p-12">
           <span
             className="halftone pointer-events-none absolute inset-0 text-cream opacity-10"
             aria-hidden="true"
@@ -50,7 +50,7 @@ export default function Contact() {
               work too, remote or from {profile.location}.
             </p>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4">
               {channels.map((c) => {
                 const Icon = c.icon;
                 const external = c.href.startsWith("http");
@@ -61,9 +61,9 @@ export default function Contact() {
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className={`pop pop-hover flex items-center gap-4 rounded-2xl ${c.surface} p-5 text-ink`}
+                    className={`pop pop-hover flex min-w-0 items-center gap-3.5 rounded-2xl ${c.surface} p-4 text-ink sm:gap-4 sm:p-5`}
                   >
-                    <span className="pop-sm grid h-11 w-11 shrink-0 place-items-center rounded-full bg-sand">
+                    <span className="pop-sm grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sand sm:h-11 sm:w-11">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span className="min-w-0">
@@ -80,7 +80,7 @@ export default function Contact() {
             <a
               href="/Ishan-Bhat-CV.pdf"
               download
-              className="pop-sm press mt-8 inline-flex items-center gap-2 rounded-full bg-clay px-7 py-3.5 text-sm font-bold text-cream transition-colors hover:bg-cream hover:text-ink"
+              className="btn pop-sm press mt-8 inline-flex bg-clay text-cream transition-colors hover:bg-cream hover:text-ink"
             >
               <DownloadIcon className="h-4 w-4" />
               Download CV (PDF)

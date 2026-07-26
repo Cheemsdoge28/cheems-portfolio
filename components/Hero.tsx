@@ -11,10 +11,10 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section id="top" className="container-x pt-14 pb-20 sm:pt-20">
-      <div className="grid items-stretch gap-6 lg:grid-cols-[1.55fr_1fr]">
+    <section id="top" className="container-x pt-10 pb-14 sm:pt-20 sm:pb-20">
+      <div className="grid items-stretch gap-5 sm:gap-6 lg:grid-cols-[1.55fr_1fr]">
         {/* main card */}
-        <Reveal className="pop relative flex flex-col justify-between overflow-hidden rounded-3xl bg-paper p-7 sm:p-10 md:p-12">
+        <Reveal className="pop relative flex flex-col justify-between overflow-hidden rounded-3xl bg-paper p-6 sm:p-10 md:p-12">
           <span
             className="halftone halftone-fade-b pointer-events-none absolute inset-0 text-ink opacity-[0.06]"
             aria-hidden="true"
@@ -24,7 +24,7 @@ export default function Hero() {
               Full-stack developer
             </span>
 
-            <h1 className="mt-6 font-display text-5xl leading-[0.98] tracking-[-0.02em] sm:text-6xl md:text-7xl">
+            <h1 className="mt-6 font-display text-6xl leading-[0.95] tracking-[-0.02em] sm:text-7xl md:text-8xl">
               Ishan Bhat
             </h1>
             <p className="mt-4 font-display text-2xl leading-tight text-ink-soft sm:text-3xl">
@@ -37,28 +37,31 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="relative mt-9 flex flex-wrap items-center gap-3">
+          <div className="relative mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4">
+            {/* primary */}
             <a
               href="#work"
-              className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal px-7 py-3.5 text-sm font-bold text-cream transition-colors hover:bg-clay"
+              className="btn pop-sm press inline-flex w-full bg-teal text-cream transition-colors hover:bg-clay sm:w-auto"
             >
               View work
               <ArrowUpRightIcon className="h-4 w-4" />
             </a>
+            {/* secondary */}
             <a
               href="/Ishan-Bhat-CV.pdf"
               download
-              className="pop-sm press inline-flex items-center gap-2 rounded-full bg-clay px-7 py-3.5 text-sm font-bold text-cream transition-colors hover:bg-teal"
+              className="btn pop-sm press inline-flex w-full bg-teal-soft text-teal transition-colors hover:bg-sage sm:w-auto"
             >
               <DownloadIcon className="h-4 w-4" />
               Download CV
             </a>
+            {/* tertiary */}
             <a
               href={`mailto:${profile.email}`}
-              className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal-soft px-7 py-3.5 text-sm font-bold text-teal transition-colors hover:bg-sage"
+              className="link-slash inline-flex w-full items-center justify-center gap-1.5 py-1.5 text-sm font-bold text-ink-soft transition-colors hover:text-ink sm:w-auto sm:justify-start sm:py-0"
             >
               <MailIcon className="h-4 w-4" />
-              Email
+              or email me
             </a>
           </div>
         </Reveal>
@@ -110,7 +113,7 @@ export default function Hero() {
             </div>
 
             <p className="relative text-center text-sm font-semibold tracking-wide text-cream/85">
-              Full-stack web &nbsp;·&nbsp; embedded Linux
+              Ships web apps &nbsp;·&nbsp; writes bare-metal C++
             </p>
           </Reveal>
 

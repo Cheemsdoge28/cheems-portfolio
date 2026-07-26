@@ -108,6 +108,25 @@
     transform: scale(0.97);
   }
 
+  /* consistent button sizing (pair with `inline-flex` + colour classes) */
+  .btn,
+  .btn-sm {
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .btn {
+    padding: 0.75rem 1.5rem;
+  }
+  .btn-sm {
+    padding: 0.5rem 1.25rem;
+  }
+
   /* comic-print dot texture; color via currentColor */
   .halftone {
     background-image: radial-gradient(currentColor 1.2px, transparent 1.7px);
@@ -225,16 +244,16 @@
   opacity: 0;
   transform: translateY(26px);
   transition:
-    opacity 0.85s var(--ease-swift),
-    transform 0.85s var(--ease-swift);
+    opacity 0.55s var(--ease-swift),
+    transform 0.55s var(--ease-swift);
   will-change: opacity, transform;
 }
 .reveal-slash-l,
 .reveal-slash-r {
   opacity: 0;
   transition:
-    opacity 0.85s var(--ease-swift),
-    transform 0.85s var(--ease-swift);
+    opacity 0.55s var(--ease-swift),
+    transform 0.55s var(--ease-swift);
   will-change: opacity, transform;
 }
 .reveal-slash-l {
@@ -284,7 +303,7 @@
   to { opacity: 1; transform: none; }
 }
 .page-enter {
-  animation: page-rise 0.7s cubic-bezier(0.33, 1, 0.68, 1) 0.16s both;
+  animation: page-rise 0.5s cubic-bezier(0.33, 1, 0.68, 1) 0.1s both;
 }
 /* the scene holds the 3D perspective and fades the sheet out at the end */
 @keyframes page-turn-fade {

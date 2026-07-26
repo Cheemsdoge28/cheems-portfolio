@@ -81,7 +81,7 @@ export default function DriscoCaseStudy() {
         <Reveal>
           <Link
             href="/#work"
-            className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal-soft px-5 py-2 text-sm font-bold text-teal transition-colors hover:bg-sage"
+            className="btn-sm pop-sm press inline-flex bg-teal-soft text-teal transition-colors hover:bg-sage"
           >
             <ArrowLeftIcon className="h-4 w-4" />
             Back to work
@@ -150,7 +150,7 @@ export default function DriscoCaseStudy() {
                 href={LIVE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pop-sm press ml-auto inline-flex items-center gap-1.5 rounded-full bg-teal px-4 py-1.5 text-xs font-bold text-cream transition-colors hover:bg-clay"
+                className="btn-sm pop-sm press ml-auto inline-flex bg-teal text-cream transition-colors hover:bg-clay"
               >
                 Open live
                 <ArrowUpRightIcon className="h-3.5 w-3.5" />
@@ -170,7 +170,7 @@ export default function DriscoCaseStudy() {
                 className="w-full"
               />
               <span className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-ink/60 via-transparent to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="pop-sm inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-bold text-cream">
+                <span className="btn pop-sm inline-flex bg-clay text-cream">
                   Open the live demo
                   <ArrowUpRightIcon className="h-4 w-4" />
                 </span>
@@ -354,14 +354,14 @@ export default function DriscoCaseStudy() {
                 href={LIVE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal px-7 py-3.5 text-sm font-bold text-cream transition-colors hover:bg-clay"
+                className="btn pop-sm press inline-flex bg-teal text-cream transition-colors hover:bg-clay"
               >
                 Explore the live demo
                 <ArrowUpRightIcon className="h-4 w-4" />
               </a>
               <Link
                 href="/#work"
-                className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal-soft px-7 py-3.5 text-sm font-bold text-teal transition-colors hover:bg-sage"
+                className="btn pop-sm press inline-flex bg-teal-soft text-teal transition-colors hover:bg-sage"
               >
                 <ArrowLeftIcon className="h-4 w-4" />
                 More projects

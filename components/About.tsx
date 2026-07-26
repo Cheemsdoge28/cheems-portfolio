@@ -4,12 +4,12 @@ import SectionHeading from "./SectionHeading";
 
 export default function About() {
   return (
-    <section id="about" className="container-x scroll-mt-28 py-20">
+    <section id="about" className="container-x scroll-mt-28 py-14 sm:py-20">
       <SectionHeading index="01" label="About" title="From web apps to bare metal" />
 
-      <div className="grid gap-6 lg:grid-cols-5">
+      <div className="grid gap-5 sm:gap-6 lg:grid-cols-5">
         <Reveal variant="slash-l" className="lg:col-span-3">
-          <div className="pop h-full rounded-3xl bg-paper p-8 sm:p-10">
+          <div className="pop h-full rounded-3xl bg-paper p-6 sm:p-10">
             <p className="text-lg leading-relaxed">
               I work across the whole stack: responsive front-ends in{" "}
               <span className="font-semibold">React and Next.js</span>, typed APIs
@@ -28,7 +28,7 @@ export default function About() {
         </Reveal>
 
         <Reveal variant="slash-r" delay={120} className="lg:col-span-2">
-          <div className="pop flex h-full flex-col justify-between rounded-3xl bg-paper p-8">
+          <div className="pop flex h-full flex-col justify-between rounded-3xl bg-paper p-6 sm:p-8">
             <div>
               <span className="text-xs font-bold tracking-[0.14em] text-clay uppercase">
                 Education

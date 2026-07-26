@@ -18,6 +18,8 @@ export type Project = {
   period: string;
   description: string;
   tags: string[];
+  /** one-line statement of the problem this project solves */
+  problem?: string;
   href?: string;
   repo?: string;
   live?: string;
@@ -26,6 +28,10 @@ export type Project = {
   /** pastel surface token for the card */
   surface: string;
   featured?: boolean;
+  /** narrative hook shown in the featured case-study block */
+  caseHook?: string;
+  /** preview image for the featured case-study block */
+  preview?: string;
 };
 
 export const projects: Project[] = [
@@ -34,6 +40,8 @@ export const projects: Project[] = [
     title: "LeadDesk Mini",
     kicker: "Full-stack lead platform",
     period: "Jul 2026",
+    problem:
+      "Small teams need to capture and manage sales leads without a bloated CRM or leaking customer data.",
     description:
       "A lead-capture product with a public landing page and a secured admin pipeline: validated lead form, JWT-protected dashboard with search, status filters, editable notes and CSV export. One Zod schema validates on the client and again on the server.",
     tags: [
@@ -64,12 +72,17 @@ export const projects: Project[] = [
     badge: "Case study",
     surface: "paper",
     featured: true,
+    caseHook:
+      "I found DRISCO through its founder's Reddit posts, read the UX complaints real users kept raising, then redesigned the whole experience end to end and documented every decision, unprompted and unaffiliated.",
+    preview: "/images/drisco-preview.jpg",
   },
   {
     slug: "cheemsweb",
     title: "CheemsWeb E-Commerce",
     kicker: "Full-stack commerce platform",
     period: "May 2025 – present",
+    problem:
+      "Selling online usually means stitching a storefront, a product catalog and secure API access together from separate tools.",
     description:
       "A full-stack commerce platform built end to end: a CMS-driven storefront, product catalog and an API-key management system, with the data layer modelled in PostgreSQL via Prisma.",
     tags: [
@@ -88,6 +101,8 @@ export const projects: Project[] = [
     title: "rb-fintech",
     kicker: "Fintech web platform",
     period: "May 2025 – present",
+    problem:
+      "A fintech brand needed a fast, credible site its team could update without shipping code for every change.",
     description:
       "A live fintech web platform with CMS-driven content, deployed on Vercel and serving real users in production.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity CMS", "Vercel"],
@@ -100,6 +115,8 @@ export const projects: Project[] = [
     title: "fire4arkos",
     kicker: "Embedded Linux · ARM",
     period: "Apr 2026 – present",
+    problem:
+      "Modern browsers won't run on cheap RK3326 ARM handhelds that have no desktop environment.",
     description:
       "A high-performance Firefox framebuffer environment for RK3326 ARM handhelds running ArkOS, including an ARM64 cross-compilation toolchain.",
     tags: ["C++", "Python", "Bash", "ARM64", "Linux"],
@@ -112,6 +129,8 @@ export const projects: Project[] = [
     title: "TubeLite",
     kicker: "Native client · bare metal",
     period: "Apr 2026 – present",
+    problem:
+      "Watching YouTube on bare-metal ARM hardware with no desktop and barely any GPU is normally impossible.",
     description:
       "A native YouTube client with hardware-accelerated rendering that draws directly to the display over KMSDRM, with no desktop environment, using libmpv and yt-dlp.",
     tags: ["C++", "SDL2", "OpenGL ES 2.0", "KMSDRM/EGL", "libmpv"],

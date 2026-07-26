@@ -24,7 +24,7 @@ function Links({ project }: Readonly<{ project: Project }>) {
       {project.caseStudy && (
         <Link
           href={project.caseStudy}
-          className="pop-sm press inline-flex items-center gap-1.5 rounded-full bg-teal px-5 py-2 text-sm font-bold text-cream transition-colors hover:bg-clay"
+          className="btn-sm pop-sm press inline-flex bg-teal text-cream transition-colors hover:bg-clay"
         >
           Read case study
           <ArrowUpRightIcon className="h-3.5 w-3.5" />
@@ -35,7 +35,7 @@ function Links({ project }: Readonly<{ project: Project }>) {
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="pop-sm press inline-flex items-center gap-1.5 rounded-full bg-clay px-5 py-2 text-sm font-bold text-cream transition-colors hover:bg-teal"
+          className="btn-sm pop-sm press inline-flex bg-clay text-cream transition-colors hover:bg-teal"
         >
           Live demo
           <ArrowUpRightIcon className="h-3.5 w-3.5" />
@@ -46,7 +46,7 @@ function Links({ project }: Readonly<{ project: Project }>) {
           href={project.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="pop-sm press inline-flex items-center gap-1.5 rounded-full bg-teal-soft px-5 py-2 text-sm font-bold text-teal transition-colors hover:bg-sage"
+          className="btn-sm pop-sm press inline-flex bg-teal text-cream transition-colors hover:bg-clay"
         >
           <GitHubIcon className="h-4 w-4" />
           Code
@@ -63,7 +63,7 @@ export default function ProjectCard({ project }: Readonly<{ project: Project }>)
     <article
       className={`pop pop-hover relative flex h-full flex-col overflow-hidden rounded-3xl ${
         surfaceClass[project.surface] ?? "bg-cream"
-      } ${featured ? "p-8 sm:p-11" : "p-7 sm:p-9"}`}
+      } ${featured ? "p-6 sm:p-11" : "p-6 sm:p-9"}`}
     >
       <span
         className="halftone pointer-events-none absolute inset-0 text-ink opacity-[0.05]"
@@ -94,6 +94,15 @@ export default function ProjectCard({ project }: Readonly<{ project: Project }>)
           <span className="pop-sm mt-3 inline-flex self-start rounded-full bg-cream px-3 py-1 text-[11px] font-bold tracking-wide text-ink uppercase">
             {project.badge}
           </span>
+        )}
+
+        {project.problem && (
+          <div className="mt-4 border-l-2 border-clay/50 pl-4">
+            <span className="text-[11px] font-bold tracking-[0.14em] text-clay uppercase">
+              The problem
+            </span>
+            <p className="mt-1 font-medium text-ink">{project.problem}</p>
+          </div>
         )}
 
         <p
