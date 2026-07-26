@@ -12,7 +12,7 @@ const surfaceClass: Record<string, string> = {
 
 function Tag({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <li className="pop-sm rounded-full bg-teal-soft px-3 py-1 text-xs font-bold text-teal">
+    <li className="pop-sm rounded-full bg-teal-soft px-3 py-1 text-xs font-bold text-teal transition-transform duration-200 hover:-translate-y-0.5">
       {children}
     </li>
   );

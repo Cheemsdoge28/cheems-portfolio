@@ -123,7 +123,7 @@ export default function Hero() {
                 key={s.label}
                 className={`px-3 py-6 text-center ${i < 2 ? "border-r-2 border-ink/10" : ""}`}
               >
-                <p className="font-display text-3xl text-clay">{s.value}</p>
+                <p className="font-display text-3xl text-clay tabular-nums">{s.value}</p>
                 <p className="mt-1 text-[11px] leading-tight font-semibold text-ink-soft">
                   {s.label}
                 </p>

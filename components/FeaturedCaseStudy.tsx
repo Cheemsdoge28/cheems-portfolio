@@ -32,7 +32,7 @@ export default function FeaturedCaseStudy({
               {project.tags.map((t) => (
                 <li
                   key={t}
-                  className="pop-sm rounded-full bg-teal-soft px-3 py-1 text-xs font-bold text-teal"
+                  className="pop-sm rounded-full bg-teal-soft px-3 py-1 text-xs font-bold text-teal transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   {t}
                 </li>
@@ -93,7 +93,7 @@ export default function FeaturedCaseStudy({
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <span className="pointer-events-none absolute inset-0 flex items-end justify-end bg-gradient-to-t from-ink/45 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="pointer-events-none absolute inset-0 flex items-end justify-end bg-linear-to-t from-ink/45 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wide text-cream uppercase">
                     Open case study
                     <ArrowUpRightIcon className="h-3.5 w-3.5" />

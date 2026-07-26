@@ -169,7 +169,7 @@ export default function DriscoCaseStudy() {
                 height={960}
                 className="w-full"
               />
-              <span className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-ink/60 via-transparent to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span className="absolute inset-0 flex items-end justify-center bg-linear-to-t from-ink/60 via-transparent to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <span className="btn pop-sm inline-flex bg-clay text-cream">
                   Open the live demo
                   <ArrowUpRightIcon className="h-4 w-4" />

@@ -43,8 +43,8 @@ export default function Marquee() {
         aria-hidden="true"
       />
       {/* soft edge fades */}
-      <span className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-paper to-transparent sm:w-28" />
-      <span className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-paper to-transparent sm:w-28" />
+      <span className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-paper to-transparent sm:w-28" />
+      <span className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-paper to-transparent sm:w-28" />
       <div className="animate-marquee flex w-max">
         <Row />
         <Row />
