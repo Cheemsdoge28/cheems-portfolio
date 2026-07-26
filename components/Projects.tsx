@@ -1,78 +1,33 @@
 import { projects } from "@/lib/data";
-import { ArrowUpRightIcon, GitHubIcon } from "./icons";
+import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import { GitHubIcon } from "./icons";
 
 export default function Projects() {
   return (
-    <section id="projects" className="scroll-mt-28 px-4 py-20">
-      <div className="mx-auto max-w-5xl">
-        <Reveal>
-          <SectionHeading title="Projects" />
-        </Reveal>
+    <section id="work" className="container-x scroll-mt-28 py-20">
+      <SectionHeading index="03" label="Selected work" title="Things I've built" />
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project, i) => (
-            <Reveal key={project.title} delay={(i % 2) * 100}>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="neu-card group flex h-full flex-col rounded-3xl p-8"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-lg font-bold transition-colors group-hover:text-accent">
-                      {project.title}
-                    </h3>
-                    <p className="mt-1 font-mono text-xs text-muted">
-                      {project.period}
-                    </p>
-                  </div>
-                  <span className="neu-inset-sm flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-muted transition-colors group-hover:text-accent">
-                    <ArrowUpRightIcon />
-                  </span>
-                </div>
-
-                {project.highlight && (
-                  <span className="neu-inset-sm mt-4 self-start rounded-full px-3 py-1 text-[11px] font-semibold text-accent">
-                    {project.highlight}
-                  </span>
-                )}
-
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
-                  {project.description}
-                </p>
-
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <li
-                      key={tag}
-                      className="neu-inset-sm rounded-full px-3 py-1 font-mono text-[11px] text-muted"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-              </a>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal>
-          <div className="mt-12 flex justify-center">
-            <a
-              href="https://github.com/Cheemsdoge28?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="neu-btn flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold"
-            >
-              <GitHubIcon className="h-4 w-4" />
-              More on GitHub
-            </a>
-          </div>
-        </Reveal>
+      <div className="grid gap-6 md:grid-cols-2">
+        {projects.map((project, i) => (
+          <Reveal key={project.slug} delay={(i % 2) * 90} className={project.featured ? "md:col-span-2" : ""}>
+            <ProjectCard project={project} />
+          </Reveal>
+        ))}
       </div>
+
+      <Reveal className="mt-10 flex justify-center">
+        <a
+          href="https://github.com/Cheemsdoge28?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pop-sm press inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-extrabold text-ink transition-colors hover:bg-sand"
+        >
+          <GitHubIcon className="h-4 w-4" />
+          More on GitHub
+        </a>
+      </Reveal>
     </section>
   );
 }

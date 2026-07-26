@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Young_Serif, Urbanist } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/Nav";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const youngSerif = Young_Serif({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-young-serif",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const urbanist = Urbanist({
   subsets: ["latin"],
+  variable: "--font-urbanist",
+  display: "swap",
 });
 
 const siteUrl =
@@ -43,7 +47,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 512,
         height: 512,
-        alt: "Ishan Bhat — Full-Stack Developer",
+        alt: "Ishan Bhat, Full-Stack Developer",
       },
     ],
   },
@@ -66,9 +70,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${youngSerif.variable} ${urbanist.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>
+        <Nav />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

@@ -1,47 +1,76 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { profile } from "@/lib/data";
-import { GitHubIcon } from "./icons";
+import Mascot from "./Mascot";
+import { DownloadIcon } from "./icons";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
-      <nav className="neu flex w-full max-w-3xl items-center justify-between rounded-full px-5 py-3 sm:px-7">
-        <a href="#top" className="flex items-center gap-2.5">
-          <Image
-            src="/images/logo.svg"
-            alt=""
-            width={30}
-            height={30}
-            priority
-            className="h-7 w-7"
-          />
-          <span className="text-sm font-bold tracking-tight">Ishan Bhat</span>
-        </a>
-        <ul className="hidden items-center gap-6 text-sm text-muted sm:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} className="transition-colors hover:text-accent">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a
-          href={profile.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-          className="neu-btn flex h-9 w-9 items-center justify-center rounded-full text-muted"
+    <header
+      className={`sticky top-0 z-50 bg-cream transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_2px_0_rgba(38,39,56,1)]" : ""
+      }`}
+    >
+      <nav className="container-x flex h-18 items-center justify-between md:h-20">
+        <Link
+          href="/"
+          aria-label="Home"
+          className="press flex shrink-0 items-center gap-2.5 transition-transform duration-300 hover:-rotate-2"
         >
-          <GitHubIcon className="h-4.5 w-4.5" />
-        </a>
+          <span className="pop-sm grid h-10 w-10 place-items-center rounded-xl bg-sand">
+            <Mascot className="h-6 w-6" priority />
+          </span>
+          <span className="font-display text-lg">Ishan Bhat</span>
+        </Link>
+
+        <div className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="link-slash text-sm font-bold text-ink-soft transition-colors hover:text-ink"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-3">
+          <a
+            href="/Ishan-Bhat-CV.pdf"
+            download
+            className="pop-sm press hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-extrabold text-cream transition-colors hover:bg-clay sm:inline-flex"
+          >
+            <DownloadIcon className="h-4 w-4" />
+            CV
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pop-sm press rounded-full bg-paper px-5 py-2.5 text-sm font-extrabold text-ink transition-colors hover:bg-sand"
+          >
+            GitHub
+          </a>
+        </div>
       </nav>
     </header>
   );

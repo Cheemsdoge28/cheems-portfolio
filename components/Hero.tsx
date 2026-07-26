@@ -1,73 +1,100 @@
-import Image from "next/image";
 import { profile } from "@/lib/data";
-import { DownloadIcon, GitHubIcon, MailIcon, PinIcon } from "./icons";
+import Mascot from "./Mascot";
+import Reveal from "./Reveal";
+import { ArrowUpRightIcon, DownloadIcon, MailIcon } from "./icons";
+
+const stats = [
+  { value: "6", label: "shipped projects" },
+  { value: "2", label: "live in production" },
+  { value: "16★", label: "on fire4arkos" },
+];
 
 export default function Hero() {
   return (
-    <section id="top" className="flex min-h-screen items-center px-4 pt-28 pb-16">
-      <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-12 lg:flex-row lg:gap-20">
-        {/* logo medallion */}
-        <div className="neu flex h-44 w-44 shrink-0 items-center justify-center rounded-full sm:h-56 sm:w-56">
-          <div className="neu-inset flex h-32 w-32 items-center justify-center rounded-full sm:h-40 sm:w-40">
-            <Image
-              src="/images/logo.svg"
-              alt="Ishan Bhat logo"
-              width={96}
-              height={96}
-              priority
-              className="h-20 w-20 sm:h-24 sm:w-24"
-            />
+    <section className="container-x pt-14 pb-20 sm:pt-20">
+      <div className="grid items-stretch gap-6 lg:grid-cols-[1.55fr_1fr]">
+        {/* main card */}
+        <Reveal className="pop relative flex flex-col justify-between overflow-hidden rounded-3xl bg-paper p-7 sm:p-10 md:p-12">
+          <span
+            className="halftone halftone-fade-b pointer-events-none absolute inset-0 text-ink opacity-[0.06]"
+            aria-hidden="true"
+          />
+          <div className="relative">
+            <span className="pop-sm stamp inline-flex rounded-full bg-teal px-4 py-1.5 text-xs font-extrabold tracking-[0.12em] text-cream uppercase">
+              Full-stack developer
+            </span>
+
+            <h1 className="mt-6 font-display text-5xl leading-[0.98] tracking-[-0.02em] sm:text-6xl md:text-7xl">
+              Ishan Bhat
+            </h1>
+            <p className="mt-4 font-display text-2xl leading-tight text-ink-soft sm:text-3xl">
+              I build <span className="marker text-ink">full-stack</span> web apps,
+              and software for bare metal.
+            </p>
+
+            <p className="mt-6 max-w-xl leading-relaxed text-ink-soft">
+              {profile.blurb}
+            </p>
           </div>
-        </div>
 
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-            {profile.name}
-          </h1>
-          <p className="mt-4 text-lg font-semibold text-accent sm:text-xl">
-            {profile.role}
-          </p>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-            {profile.blurb}
-          </p>
-
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+          <div className="relative mt-9 flex flex-wrap items-center gap-3">
             <a
-              href="#projects"
-              className="neu-btn rounded-full px-7 py-3 text-sm font-semibold"
+              href="#work"
+              className="pop-sm press inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-extrabold text-cream transition-colors hover:bg-clay"
             >
-              View projects
+              View work
+              <ArrowUpRightIcon className="h-4 w-4" />
             </a>
             <a
               href="/Ishan-Bhat-CV.pdf"
               download
-              className="neu-btn flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-accent"
+              className="pop-sm press inline-flex items-center gap-2 rounded-full bg-clay px-7 py-3.5 text-sm font-extrabold text-cream transition-colors hover:bg-ink"
             >
               <DownloadIcon className="h-4 w-4" />
               Download CV
             </a>
             <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="neu-btn flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold"
-            >
-              <GitHubIcon className="h-4 w-4" />
-              GitHub
-            </a>
-            <a
               href={`mailto:${profile.email}`}
-              className="neu-btn flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold"
+              className="pop-sm press inline-flex items-center gap-2 rounded-full bg-sand px-7 py-3.5 text-sm font-extrabold text-ink transition-colors hover:bg-sand-deep"
             >
               <MailIcon className="h-4 w-4" />
-              Email me
+              Email
             </a>
           </div>
+        </Reveal>
 
-          <p className="mt-8 flex items-center gap-2 text-xs text-muted">
-            <PinIcon className="h-4 w-4" />
-            {profile.location} · open to internships and freelance work
-          </p>
+        {/* side column: mascot medallion + stats */}
+        <div className="flex flex-col gap-6">
+          <Reveal
+            variant="slash-r"
+            delay={120}
+            className="pop relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl bg-paper p-8"
+          >
+            <span
+              className="halftone pointer-events-none absolute inset-0 text-ink opacity-10"
+              aria-hidden="true"
+            />
+            <div className="pop relative grid h-40 w-40 place-items-center rounded-full bg-paper sm:h-48 sm:w-48">
+              <Mascot className="h-24 w-24 sm:h-28 sm:w-28" priority />
+            </div>
+            <span className="pop-sm stamp absolute right-5 top-5 rotate-6 rounded-full bg-teal px-3 py-1 text-[11px] font-extrabold tracking-wide text-cream uppercase">
+              Pune, IN
+            </span>
+          </Reveal>
+
+          <Reveal delay={200} className="pop grid grid-cols-3 rounded-3xl bg-paper">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`px-3 py-6 text-center ${i < 2 ? "border-r-2 border-ink/15" : ""}`}
+              >
+                <p className="font-display text-3xl text-clay">{s.value}</p>
+                <p className="mt-1 text-[11px] leading-tight font-semibold text-ink-soft">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </Reveal>
         </div>
       </div>
     </section>
