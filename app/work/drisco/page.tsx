@@ -20,21 +20,22 @@ const goals = [
   "Build a reusable design system, not isolated pages.",
 ];
 
+const identityPoints = [
+  "A palette drawn from the product and its Indian roots, not a stock wellness green, so the drinks read as premium and characterful rather than clinical.",
+  "Typography and layout that treat the heritage as a deliberate design decision, carried consistently instead of bolted on as decoration.",
+  "Motion and copy tuned to the brand's own energy: warm, confident, and never getting in the user's way.",
+];
+
 const changes = [
   {
-    n: "01",
+    n: "02",
     title: "Information hierarchy",
     body: "Health benefits appear immediately. You understand what DRISCO is before you're asked to buy it.",
   },
   {
-    n: "02",
+    n: "03",
     title: "Product-first",
     body: "Products are no longer buried. The shopping journey begins much earlier on the page.",
-  },
-  {
-    n: "03",
-    title: "Indian identity",
-    body: "Rather than another generic wellness brand, it leans into familiar Indian beverages, shown through a modern visual language.",
   },
   {
     n: "04",
@@ -55,7 +56,7 @@ const swatches = [
 const systemParts = [
   "Typography scale",
   "Colour tokens",
-  "Hard-offset shadows",
+  "Soft-offset shadows",
   "Buttons",
   "Product cards",
   "Chips",
@@ -65,7 +66,7 @@ const systemParts = [
 function H({ index, title }: Readonly<{ index: string; title: string }>) {
   return (
     <Reveal className="mb-8 flex flex-col gap-2">
-      <span className="flex items-center gap-3 text-sm font-extrabold tracking-[0.14em] text-ink-soft uppercase">
+      <span className="flex items-center gap-3 text-sm font-bold tracking-[0.14em] text-ink-soft uppercase">
         <span className="font-display text-clay">{index}</span>
       </span>
       <h2 className="font-display text-3xl leading-tight sm:text-4xl">{title}</h2>
@@ -80,7 +81,7 @@ export default function DriscoCaseStudy() {
         <Reveal>
           <Link
             href="/#work"
-            className="pop-sm press inline-flex items-center gap-2 rounded-full bg-paper px-5 py-2 text-sm font-extrabold text-ink transition-colors hover:bg-sand"
+            className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal-soft px-5 py-2 text-sm font-bold text-teal transition-colors hover:bg-sage"
           >
             <ArrowLeftIcon className="h-4 w-4" />
             Back to work
@@ -95,7 +96,7 @@ export default function DriscoCaseStudy() {
               aria-hidden="true"
             />
             <div className="relative">
-              <span className="pop-sm inline-flex rounded-full bg-teal px-4 py-1.5 text-xs font-extrabold tracking-[0.12em] text-cream uppercase">
+              <span className="pop-sm inline-flex rounded-full bg-teal px-4 py-1.5 text-xs font-bold tracking-[0.12em] text-cream uppercase">
                 Independent redesign · concept
               </span>
               <h1 className="mt-6 font-display text-5xl leading-[0.98] sm:text-6xl md:text-7xl">
@@ -124,7 +125,7 @@ export default function DriscoCaseStudy() {
                 ["Status", "Live demo"],
               ].map(([k, v]) => (
                 <div key={k}>
-                  <dt className="text-[11px] font-extrabold tracking-[0.12em] text-clay uppercase">
+                  <dt className="text-[11px] font-bold tracking-[0.12em] text-clay uppercase">
                     {k}
                   </dt>
                   <dd className="mt-1 font-display text-lg leading-tight">{v}</dd>
@@ -149,7 +150,7 @@ export default function DriscoCaseStudy() {
                 href={LIVE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pop-sm press ml-auto inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-1.5 text-xs font-extrabold text-cream transition-colors hover:bg-clay"
+                className="pop-sm press ml-auto inline-flex items-center gap-1.5 rounded-full bg-teal px-4 py-1.5 text-xs font-bold text-cream transition-colors hover:bg-clay"
               >
                 Open live
                 <ArrowUpRightIcon className="h-3.5 w-3.5" />
@@ -169,7 +170,7 @@ export default function DriscoCaseStudy() {
                 className="w-full"
               />
               <span className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-ink/60 via-transparent to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="pop-sm inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-extrabold text-cream">
+                <span className="pop-sm inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-bold text-cream">
                   Open the live demo
                   <ArrowUpRightIcon className="h-4 w-4" />
                 </span>
@@ -243,9 +244,44 @@ export default function DriscoCaseStudy() {
         {/* what changed */}
         <section className="mt-16">
           <H index="03" title="What changed" />
-          <div className="grid gap-6 sm:grid-cols-2">
+
+          {/* lead change: crafting the brand identity */}
+          <Reveal className="pop relative overflow-hidden rounded-3xl bg-paper p-8 sm:p-10">
+            <span
+              className="halftone pointer-events-none absolute inset-0 text-ink opacity-[0.04]"
+              aria-hidden="true"
+            />
+            <div className="relative grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
+              <div>
+                <span className="font-display text-4xl text-clay">01</span>
+                <h3 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
+                  Crafting the identity
+                </h3>
+                <p className="mt-4 leading-relaxed text-ink-soft">
+                  The easy path was pouring the product into a generic wellness
+                  template. I did the opposite: I shaped the visual language around
+                  what DRISCO already is, adapting every decision to the brand so its
+                  Indian character reads as intentional, not as a coat of paint.
+                </p>
+              </div>
+              <ul className="space-y-3">
+                {identityPoints.map((p, i) => (
+                  <li
+                    key={p}
+                    className="row-cascade flex gap-3 rounded-2xl bg-cream p-4"
+                    style={{ "--i": i } as React.CSSProperties}
+                  >
+                    <span className="mt-0.5 font-display text-clay">→</span>
+                    <span className="text-ink-soft">{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {changes.map((c, i) => (
-              <Reveal key={c.n} delay={(i % 2) * 90}>
+              <Reveal key={c.n} delay={(i % 3) * 90}>
                 <div className="pop pop-hover h-full rounded-3xl bg-paper p-8">
                   <span className="font-display text-4xl text-clay">{c.n}</span>
                   <h3 className="mt-3 font-display text-2xl">{c.title}</h3>
@@ -265,12 +301,15 @@ export default function DriscoCaseStudy() {
                 Rather than isolated screens, I built a system: typography, colour
                 tokens, shadows, and components that stay consistent across future
                 pages and campaigns. This portfolio you&apos;re reading borrows the
-                same design language: warm neutrals, ink, and the hard-offset shadow
-                that makes every surface feel pressable.
+                same design language: warm neutrals, a restrained verdant accent,
+                and softened offset shadows that make every surface feel pressable.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2.5">
                 {systemParts.map((p) => (
-                  <li key={p} className="pop-sm rounded-full bg-sand px-4 py-1.5 text-sm font-bold">
+                  <li
+                    key={p}
+                    className="pop-sm rounded-full bg-teal-soft px-4 py-1.5 text-sm font-bold text-teal"
+                  >
                     {p}
                   </li>
                 ))}
@@ -315,14 +354,14 @@ export default function DriscoCaseStudy() {
                 href={LIVE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pop-sm press inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-extrabold text-cream transition-colors hover:bg-clay"
+                className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal px-7 py-3.5 text-sm font-bold text-cream transition-colors hover:bg-clay"
               >
                 Explore the live demo
                 <ArrowUpRightIcon className="h-4 w-4" />
               </a>
               <Link
                 href="/#work"
-                className="pop-sm press inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-extrabold text-ink transition-colors hover:bg-sand"
+                className="pop-sm press inline-flex items-center gap-2 rounded-full bg-teal-soft px-7 py-3.5 text-sm font-bold text-teal transition-colors hover:bg-sage"
               >
                 <ArrowLeftIcon className="h-4 w-4" />
                 More projects

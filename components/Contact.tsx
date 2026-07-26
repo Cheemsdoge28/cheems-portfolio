@@ -80,7 +80,7 @@ export default function Contact() {
             <a
               href="/Ishan-Bhat-CV.pdf"
               download
-              className="pop-sm press mt-8 inline-flex items-center gap-2 rounded-full bg-clay px-7 py-3.5 text-sm font-extrabold text-cream transition-colors hover:bg-cream hover:text-ink"
+              className="pop-sm press mt-8 inline-flex items-center gap-2 rounded-full bg-clay px-7 py-3.5 text-sm font-bold text-cream transition-colors hover:bg-cream hover:text-ink"
             >
               <DownloadIcon className="h-4 w-4" />
               Download CV (PDF)

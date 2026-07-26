@@ -74,6 +74,7 @@ export default function RootLayout({
       className={`${youngSerif.variable} ${urbanist.variable}`}
     >
       <body>
+        <div className="ambient" aria-hidden="true" />
         <Nav />
         <main>{children}</main>
       </body>

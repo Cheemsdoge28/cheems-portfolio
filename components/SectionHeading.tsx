@@ -7,7 +7,7 @@ export default function SectionHeading({
 }: Readonly<{ index: string; label: string; title: string }>) {
   return (
     <Reveal className="mb-12 flex flex-col gap-3">
-      <span className="flex items-center gap-3 text-sm font-extrabold tracking-[0.14em] text-ink-soft uppercase">
+      <span className="flex items-center gap-3 text-sm font-bold tracking-[0.14em] text-ink-soft uppercase">
         <span className="font-display text-clay">{index}</span>
         {label}
       </span>

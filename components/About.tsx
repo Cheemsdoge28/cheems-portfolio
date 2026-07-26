@@ -30,7 +30,7 @@ export default function About() {
         <Reveal variant="slash-r" delay={120} className="lg:col-span-2">
           <div className="pop flex h-full flex-col justify-between rounded-3xl bg-paper p-8">
             <div>
-              <span className="text-xs font-extrabold tracking-[0.14em] text-clay uppercase">
+              <span className="text-xs font-bold tracking-[0.14em] text-clay uppercase">
                 Education
               </span>
               <p className="mt-4 font-display text-2xl leading-tight">

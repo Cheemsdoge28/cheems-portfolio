@@ -22,7 +22,7 @@ export default function Projects() {
           href="https://github.com/Cheemsdoge28?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="pop-sm press inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-extrabold text-ink transition-colors hover:bg-sand"
+          className="pop-sm press inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-bold text-ink transition-colors hover:bg-sand"
         >
           <GitHubIcon className="h-4 w-4" />
           More on GitHub
